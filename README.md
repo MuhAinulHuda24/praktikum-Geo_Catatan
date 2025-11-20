@@ -1,16 +1,32 @@
-# geo_catatan
+#  Geo-Catatan — Aplikasi Peta, Lokasi, dan Reverse Geocoding (Flutter)
 
-A new Flutter project.
+**Geo-Catatan** adalah aplikasi Flutter sederhana yang memanfaatkan geolokasi, peta digital, dan reverse geocoding.  
+Pengguna dapat menandai lokasi pada peta dengan long press, menyimpan catatan, serta melihat alamat otomatis dari titik yang dipilih.
 
-## Getting Started
+Aplikasi ini dibuat sebagai bagian dari praktikum *Pemrograman Mobile* dengan topik **Geolokasi, Peta Digital, dan Geocoding**.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur Utama
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Menampilkan peta (OpenStreetMap via `flutter_map`)
+- Menambahkan marker dengan long press
+- Menyimpan catatan sederhana untuk setiap lokasi
+- Menemukan lokasi pengguna dengan GPS
+- Alamat otomatis dari koordinat (Reverse Geocoding)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Dependensi
+
+Tambahkan ke `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  geolocator: ^11.0.0
+  geocoding: ^3.0.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
