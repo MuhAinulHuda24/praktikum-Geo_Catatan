@@ -27,7 +27,7 @@ pubspec.yaml
 AndroidManifest.xml
 ```<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET" />```
 
 ## Model Data
 ```class CatatanModel {
@@ -40,7 +40,7 @@ AndroidManifest.xml
     required this.note,
     required this.address,
   });
-}
+}```
 
 ## Implementasi Utama
 Menampilkan Peta
@@ -51,12 +51,12 @@ Menampilkan Peta
     onLongPress: _handleLongPress,
   ),
   children: [
-    TileLayer(urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'),
+    TileLayer(urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'),```
 
 Mendapatkan Lokasi Pengguna
 ```Position position = await Geolocator.getCurrentPosition();
 _mapController.move(
-  latlong.LatLng(position.latitude, position.longitude), 15.0);
+  latlong.LatLng(position.latitude, position.longitude), 15.0);```
 
 Long Press → Tambah Marker + Reverse Geocoding
 ```void _handleLongPress(_, latlong.LatLng point) async {
@@ -68,7 +68,7 @@ Long Press → Tambah Marker + Reverse Geocoding
       address: p.first.street ?? "Alamat tidak dikenal",
     ));
   });
-}
+}```
 
 Menampilkan Marker
 ```MarkerLayer(
@@ -76,7 +76,7 @@ Menampilkan Marker
     point: n.position,
     child: Icon(Icons.location_on, color: Colors.red),
   )).toList(),
-)
+)```
 
 ## Hasil
 
