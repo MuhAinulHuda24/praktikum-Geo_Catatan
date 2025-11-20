@@ -1,4 +1,4 @@
-#  Geo-Catatan — Aplikasi Peta, Lokasi, dan Reverse Geocoding (Flutter)
+###  Geo-Catatan — Aplikasi Peta, Lokasi, dan Reverse Geocoding (Flutter)
 
 ## Deskripsi 
 
@@ -14,7 +14,7 @@ Mengubah koordinat menjadi alamat (reverse geocoding)
 
 Menambahkan marker melalui gesture long pres
 
-## Konfigurasi Proyek
+# Konfigurasi Proyek
 # pubspec.yaml
 dependencies:
   flutter:
@@ -29,7 +29,7 @@ AndroidManifest.xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.INTERNET" />
 
-## Model Data
+# Model Data
 class CatatanModel {
   final LatLng position;
   final String note;
@@ -42,8 +42,8 @@ class CatatanModel {
   });
 }
 
-## Implementasi Utama
-# Menampilkan Peta
+# Implementasi Utama
+## Menampilkan Peta
 
 FlutterMap(
   options: MapOptions(
@@ -54,13 +54,13 @@ FlutterMap(
   children: [
     TileLayer(urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'),```
 
-# Mendapatkan Lokasi Pengguna
+## Mendapatkan Lokasi Pengguna
 
 Position position = await Geolocator.getCurrentPosition();
 _mapController.move(
   latlong.LatLng(position.latitude, position.longitude), 15.0);
 
-# Long Press → Tambah Marker + Reverse Geocoding
+## Long Press → Tambah Marker + Reverse Geocoding
 
 void _handleLongPress(_, latlong.LatLng point) async {
   List<Placemark> p = await placemarkFromCoordinates(point.latitude, point.longitude);
@@ -74,7 +74,7 @@ void _handleLongPress(_, latlong.LatLng point) async {
 }
 
 
-# Menampilkan Marker
+## Menampilkan Marker
 MarkerLayer(
   markers: _savedNotes.map((n) => Marker(
     point: n.position,
@@ -82,7 +82,7 @@ MarkerLayer(
   )).toList(),
 )
 
-## Hasil
+# Hasil
 
 Aplikasi berhasil:
 
@@ -94,6 +94,6 @@ Menambahkan marker lewat long press
 
 Mendapatkan alamat dengan reverse geocoding
 
-## Kesimpulan
+# Kesimpulan
 
 Praktikum ini memberikan pemahaman dasar integrasi layanan lokasi dan penggunaan peta digital dalam Flutter. Aplikasi “Geo-Catatan” berhasil menunjukkan cara kerja GPS, peta, marker, serta konversi koordinat menjadi alamat.
