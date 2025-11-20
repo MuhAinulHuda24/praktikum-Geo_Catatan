@@ -30,7 +30,7 @@ AndroidManifest.xml
 <uses-permission android:name="android.permission.INTERNET" />```
 
 ## Model Data
-```class CatatanModel {
+class CatatanModel {
   final LatLng position;
   final String note;
   final String address;
@@ -40,11 +40,12 @@ AndroidManifest.xml
     required this.note,
     required this.address,
   });
-}```
+}
 
 ## Implementasi Utama
-Menampilkan Peta
-```FlutterMap(
+# Menampilkan Peta
+
+FlutterMap(
   options: MapOptions(
     initialCenter: latlong.LatLng(-6.2, 106.8),
     initialZoom: 13,
@@ -53,13 +54,15 @@ Menampilkan Peta
   children: [
     TileLayer(urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'),```
 
-Mendapatkan Lokasi Pengguna
-```Position position = await Geolocator.getCurrentPosition();
-_mapController.move(
-  latlong.LatLng(position.latitude, position.longitude), 15.0);```
+# Mendapatkan Lokasi Pengguna
 
-Long Press → Tambah Marker + Reverse Geocoding
-```void _handleLongPress(_, latlong.LatLng point) async {
+Position position = await Geolocator.getCurrentPosition();
+_mapController.move(
+  latlong.LatLng(position.latitude, position.longitude), 15.0);
+
+# Long Press → Tambah Marker + Reverse Geocoding
+
+void _handleLongPress(_, latlong.LatLng point) async {
   List<Placemark> p = await placemarkFromCoordinates(point.latitude, point.longitude);
   setState(() {
     _savedNotes.add(CatatanModel(
@@ -68,15 +71,16 @@ Long Press → Tambah Marker + Reverse Geocoding
       address: p.first.street ?? "Alamat tidak dikenal",
     ));
   });
-}```
+}
 
-Menampilkan Marker
-```MarkerLayer(
+
+# Menampilkan Marker
+MarkerLayer(
   markers: _savedNotes.map((n) => Marker(
     point: n.position,
     child: Icon(Icons.location_on, color: Colors.red),
   )).toList(),
-)```
+)
 
 ## Hasil
 
