@@ -15,8 +15,8 @@ Mengubah koordinat menjadi alamat (reverse geocoding)
 Menambahkan marker melalui gesture long pres
 
 ## Konfigurasi Proyek
-pubspec.yaml
-```dependencies:
+# pubspec.yaml
+dependencies:
   flutter:
     sdk: flutter
   geolocator: ^11.0.0
@@ -25,9 +25,9 @@ pubspec.yaml
   latlong2: ^0.9.0
 
 AndroidManifest.xml
-```<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.INTERNET" />```
+<uses-permission android:name="android.permission.INTERNET" />
 
 ## Model Data
 class CatatanModel {
